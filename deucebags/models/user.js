@@ -1,7 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("User", {
       
-      name: DataTypes.STRING
+      User: {type: DataTypes.STRING,
+        allowNull: false
+    }
+
     });
   //need to make user equal to login on login
     User.associate = function(models) {

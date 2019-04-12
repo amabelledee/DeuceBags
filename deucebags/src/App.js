@@ -7,6 +7,8 @@ import Compliment from './compliment'
 import Geo from './geo'
 
 
+
+
 class App extends Component {
   render() {
     return [
@@ -14,7 +16,8 @@ class App extends Component {
     <li key="Joke"><Joke /></li>,
     <li key="Quote"><Quote /></li>,
     <li key="Compliment"><Compliment /></li>,
-    <li key="Geo"><Geo /></li>];
+    <li key="Geo"><Geo /></li>,
+    ];
 }}
 
 export default App;
