@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import Buttons from './buttons/buttons'
+import Buttons from './buttons/combined'
 import Geo from './geo'
 import Form from './journal'
 
