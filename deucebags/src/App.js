@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import Joke from './joke'
-import Quote from './quote'
-import Compliment from './compliment'
+import Buttons from './buttons/buttons'
 import Geo from './geo'
+import Form from './journal'
 
 
 
@@ -13,10 +12,10 @@ class App extends Component {
   render() {
     return [
       
-    <li key="Joke"><Joke /></li>,
-    <li key="Quote"><Quote /></li>,
-    <li key="Compliment"><Compliment /></li>,
+    <li key="Buttons"><Buttons /></li>,
     <li key="Geo"><Geo /></li>,
+    <li key="form"><Form /></li>
+
     ];
 }}
 
