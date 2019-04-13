@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Dashboard from './components/Dasboard';
 import { databaseBase, firebase } from './base';
-import Buttons from './components/Buttons/Buttons'
+import Buttons from './components/Buttons';
 import Display from './components/Display';
 
 class App extends Component {
@@ -10,7 +10,8 @@ class App extends Component {
     super()
     this.state = {
       authenticated: false,
-      items: []
+      items: [],
+      disMessage: "Button click display text"
     }
   }
 
@@ -117,7 +118,9 @@ class App extends Component {
 
         {/* Display Field */}
         <React.Fragment>
-          <Display />
+          <Display 
+            disMessage={this.state.disMessage}
+            />
         </React.Fragment>
 
         {/* Authentication  */}
