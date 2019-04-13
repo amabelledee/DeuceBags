@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from "./app"
+import Combine from './componentrender';
 
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App key="App" />, document.getElementById('root'))
+ReactDOM.render(<App key="App" />,  document.getElementById('root'))
+ReactDOM.render(<Combine key="Render" />, document.getElementById('buttons'))
 
 
 
