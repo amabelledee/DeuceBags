@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import Dashboard from './components/Dasboard';
 import { databaseBase, firebase } from './base';
-import Buttons from './components/Buttons/Buttons'
+import Buttons from './components/Buttons/index'
 import Display from './components/Display';
+import Combined from './components/apicomps/combined'
 
 class App extends Component {
   constructor() {
@@ -113,6 +114,7 @@ class App extends Component {
 
         <React.Fragment>
           <Buttons />
+          <Combined />
         </React.Fragment>
 
         {/* Display Field */}
