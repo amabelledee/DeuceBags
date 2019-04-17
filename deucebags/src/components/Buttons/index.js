@@ -39,18 +39,21 @@ class Buttons extends React.Component {
   // render buttons and display text
   render() {
     return (
-      <div>
+      <React.Fragment>
+        <div>
+          <button id="jokebutton" onClick={this.jokeClick}>Joke</button>
+          <button id="compliment" onClick={this.complimentClick}>Compliment</button>
+          <button id="quote" onClick={this.quoteClick}>Quotes</button>
+        </div>
+
+        {/* display field */}
         <div className='container'>
           <h1> {this.state.h1} </h1>
           {/* this is needed for quote API */}
           <h2> {this.state.h2} </h2>
         </div>
-        <button id="jokebutton" onClick={this.jokeClick}>Joke</button>
-        <button id="compliment" onClick={this.complimentClick}>Compliment</button>
-        <button id="quote" onClick={this.quoteClick}>Quotes</button>
-      </div>)
-
+      </React.Fragment>
+    )
   };
-
 }
 export default Buttons;
