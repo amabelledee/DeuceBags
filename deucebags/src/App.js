@@ -45,7 +45,6 @@ class App extends Component {
           <div className="header">
             header can go
         </div>
-
           {/* Button component rendered here */}
           <React.Fragment>
             <Buttons />

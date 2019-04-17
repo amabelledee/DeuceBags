@@ -8,6 +8,7 @@
     "re-base": "^4.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-native-public-ip": "^1.0.1",
     "react-scripts": "2.1.8",
     "unirest": "^0.6.0"
   },
