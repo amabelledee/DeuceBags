@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 
-import './App.css';
+
 
 
 class Form extends Component {
     constructor() {
       super();
       this.state = {
-        p: ''
+        p: '',
+        
       };
   
       this.handleChange = this.handleChange.bind(this);
+      this.handleClick = this.handleClick.bind(this)
       
     }
   
@@ -18,21 +20,24 @@ class Form extends Component {
       this.setState({p: event.target.value});
     }
   
-    handleSubmit(event) {
-      alert('An essay was submitted: ' + this.state.value);
-      event.preventDefault();
+    handleClick(event) {
+     this.setState({p: event.target.value})
+     
+    
     }
   
     render() {
+     
       return (
-        <form action="/neverland.pcp" onSubmit={this.handleSubmit}>
-          <label><p onChange={this.handleChange}>
+        <form onClick={this.handleClick} >
+          <label><p onChange={this.handleChange} onClick={this.state.value} >
              {this.state.p}
             </p>
+            
             <textarea value={this.state.value} onChange={this.handleChange} />
             
           </label>
-          <input type="submit" value="Submit" />
+          <button type="button" value="Let that shit go" onClick={this.state.value}>let it go</button>
         </form>
       );
     }
