@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Buttons from './components/Buttons';
+import Journal from './components/apicomps/journal'
 import unirest from 'unirest';
 import axios from 'axios';
 
@@ -48,6 +49,8 @@ class App extends Component {
           {/* Button component rendered here */}
           <React.Fragment>
             <Buttons />
+            <Journal />
+            
           </React.Fragment>
         </div>
       </React.Fragment>
