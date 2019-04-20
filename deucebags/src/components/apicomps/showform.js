@@ -18,6 +18,12 @@ super()
             this.setState({ showResults: true })          
     }    
 
+    handleClick2() {
+      
+            this.setState({ showResults: false})
+        
+    }
+
     render() {
             return (
                 <div>
