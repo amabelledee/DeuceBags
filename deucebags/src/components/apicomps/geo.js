@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import publicIP from 'react-native-public-ip';
-import './App.css';
+
 
 
 class Geo extends Component {
@@ -21,7 +21,8 @@ publicIP()
   .then(ip => {
     console.log(ip);
     axios.get('http://api.ipstack.com/' + ip + '?access_key=3b5db9b8af6b7c378b215577728be0ae')
-    .then(response => this.setState({h1: response.data.city}))
+    .then(response => this.setState({h1: response.data.zip}))
+    
     
   })
   .catch(error => {

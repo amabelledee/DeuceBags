@@ -3,6 +3,7 @@ import './App.css';
 import Buttons from './components/Buttons';
 import Showform from './components/apicomps/showform'
 import unirest from 'unirest';
+import Geo from './components/apicomps/geo'
 import axios from 'axios';
 
 // Component for buttons and display text
@@ -50,6 +51,7 @@ class App extends Component {
           <React.Fragment>
             <Buttons />
             <Showform />
+            <Geo />
             
           </React.Fragment>
         </div>
