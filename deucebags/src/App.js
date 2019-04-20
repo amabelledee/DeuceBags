@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Buttons from './components/Buttons';
-import Journal from './components/apicomps/journal'
+import Showform from './components/apicomps/showform'
 import unirest from 'unirest';
 import axios from 'axios';
 
@@ -49,7 +49,7 @@ class App extends Component {
           {/* Button component rendered here */}
           <React.Fragment>
             <Buttons />
-            <Journal />
+            <Showform />
             
           </React.Fragment>
         </div>

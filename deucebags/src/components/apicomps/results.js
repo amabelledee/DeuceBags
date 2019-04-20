@@ -21,7 +21,7 @@ class Form extends Component {
     }
   
     handleClick(event) {
-     this.setState({h1: event.target.value})
+     this.setState({h1: this.state.value})
      
     
     }
@@ -29,7 +29,7 @@ class Form extends Component {
     render() {
      
       return (
-        <form onClick={this.handleClick} >
+        <form>
           <label><h1 onChange={this.handleChange} onClick={this.state.value} >
              {this.state.h1}
             </h1>
