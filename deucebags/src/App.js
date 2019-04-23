@@ -4,18 +4,38 @@ import Buttons from './components/Buttons';
 import Showform from './components/apicomps/showform'
 import unirest from 'unirest';
 import axios from 'axios';
+import NavComponent from './components/Navbar';
+import Registration from './components/Registration';
 
 // Component for buttons and display text
 class App extends Component {
-  constructor() {
-    super()
+
+  constructor(props, context) {
+    super(props, context)
     this.state = {
       h1: '',
-      h2: ''
+      h2: '',
+      authenticated: false,
+      items: [],
+      show: false,
+      showRegistraion: false
     }
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
     this.jokeClick = this.jokeClick.bind(this)
     this.complimentClick = this.complimentClick.bind(this)
     this.quoteClick = this.quoteClick.bind(this)
+    this.handleShow = this.handleShow.bind(this)
+    this.handleClose = this.handleClose.bind(this)
+  }
+
+  // method for modal
+  handleClose() {
+    this.setState({ show: false });
+  }
+
+  handleShow() {
+    this.setState({ show: true });
   }
 
   // method for generating joke
@@ -37,10 +57,20 @@ class App extends Component {
     axios.get('http://quotes.rest/qod.json')
       .then(response => this.setState({ h1: response.data.contents.quotes[0].quote, h2: response.data.contents.quotes[0].author }))
   }
-
+  
   render() {
     return (
       <React.Fragment>
+        <NavComponent 
+        handleClose={this.handleClose}
+        handleShow={this.handleShow}
+        />
+        <Registration 
+          show={this.state.show}
+          handleClose={this.handleClose}
+          handleShow={this.handleShow}
+          showRegistraion={this.state.showRegistraion}
+          />
         <div className="App">
           {/* Header   */}
           <div className="header">
@@ -48,12 +78,26 @@ class App extends Component {
         </div>
           {/* Button component rendered here */}
           <React.Fragment>
-            <Buttons />
-            <Showform />
-            
+            <Buttons
+              jokeClick={this.jokeClick}
+              complimentClick={this.complimentClick}
+              quoteClick={this.quoteClick} />
+//             <Showform />
+       
           </React.Fragment>
         </div>
+
+        {/* display field */}
+        <React.Fragment>
+          <div className='container'>
+            <h1> {this.state.h1} </h1>
+            {/* this is needed for quote API to GET author */}
+            <h2> {this.state.h2} </h2>
+          </div>
+        </React.Fragment>
+
       </React.Fragment>
+
     );
   }
 }
