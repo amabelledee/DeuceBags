@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Buttons from './components/Buttons';
+import Showform from './components/apicomps/showform'
 import unirest from 'unirest';
 import axios from 'axios';
 
@@ -45,10 +46,11 @@ class App extends Component {
           <div className="header">
             header can go
         </div>
-
           {/* Button component rendered here */}
           <React.Fragment>
             <Buttons />
+            <Showform />
+            
           </React.Fragment>
         </div>
       </React.Fragment>
