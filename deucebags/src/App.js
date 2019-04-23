@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Buttons from './components/Buttons';
+import Showform from './components/apicomps/showform'
 import unirest from 'unirest';
 import axios from 'axios';
 import NavComponent from './components/Navbar';
@@ -81,6 +82,8 @@ class App extends Component {
               jokeClick={this.jokeClick}
               complimentClick={this.complimentClick}
               quoteClick={this.quoteClick} />
+//             <Showform />
+       
           </React.Fragment>
         </div>
 
