@@ -8,6 +8,7 @@ import NavComponent from './components/Navbar';
 import Registration from './components/Registration';
 import Container from 'react-bootstrap/Container';
 import Footer from './components/Footer';
+import ChatButton from './components/ChatButton';
 
 // Component for buttons and display text
 class App extends Component {
@@ -87,6 +88,11 @@ class App extends Component {
 //             <Showform />
        
           </React.Fragment>
+
+          <React.Fragment>
+            <ChatButton></ChatButton>
+          </React.Fragment>
+          
         </div>
 
         {/* display field */}
