@@ -3,7 +3,7 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-  // GET route for getting all of the posts
+
   app.get("/api/posts/", function(req, res) {
     db.Post.findAll({})
       .then(function(dbPost) {
@@ -29,9 +29,9 @@ module.exports = function(app) {
   app.post("/api/posts", function(req, res) {
     console.log(req.body);
     db.Post.create({
-      title: req.body.title,
+      title: req.body.name,
       body: req.body.body,
-      category: req.body.category
+    
     })
       .then(function(dbPost) {
         res.json(dbPost);

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Buttons from './components/Buttons';
 import Showform from './components/apicomps/showform'
+import Showdiary from './components/apicomps/showdiary'
 import unirest from 'unirest';
 import axios from 'axios';
 import NavComponent from './components/Navbar';
@@ -83,6 +84,7 @@ class App extends Component {
               complimentClick={this.complimentClick}
               quoteClick={this.quoteClick} />
 //             <Showform />
+              <Showdiary />
        
           </React.Fragment>
         </div>
