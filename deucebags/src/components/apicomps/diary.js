@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 
 
 
@@ -21,7 +21,7 @@ class Form extends Component {
     
   
     handleClick() {
-        Axios.post("/api/posts", function(req, res) {
+        axios.post("/api/posts", function(req, res) {
             console.log(req.body);
             this.preventdefault()
             

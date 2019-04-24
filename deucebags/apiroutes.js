@@ -1,7 +1,7 @@
 var db = require("../models");
+import express from 'express'
 
-
-module.exports = function(app) {
+const app = express;
 
 
   app.get("/api/posts/", function(req, res) {
@@ -62,4 +62,3 @@ module.exports = function(app) {
         res.json(dbPost);
       });
   });
-};
