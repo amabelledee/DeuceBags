@@ -7,6 +7,7 @@ import axios from 'axios';
 import NavComponent from './components/Navbar';
 import Registration from './components/Registration';
 import Container from 'react-bootstrap/Container';
+import Footer from './components/Footer';
 
 // Component for buttons and display text
 class App extends Component {
@@ -70,7 +71,7 @@ class App extends Component {
           show={this.state.show}
           handleClose={this.handleClose}
           handleShow={this.handleShow}
-          showRegistraion={this.state.showRegistraion}
+          showRegistration={this.state.showRegistration}
           />
         <div className="App">
           {/* Header   */}
@@ -95,6 +96,12 @@ class App extends Component {
             {/* this is needed for quote API to GET author */}
             <h2> {this.state.h2} </h2>
           </div>
+        </React.Fragment>
+
+        <React.Fragment>
+        <Footer>
+
+        </Footer>
         </React.Fragment>
 
       </React.Fragment>
