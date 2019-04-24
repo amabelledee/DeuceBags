@@ -6,6 +6,7 @@ import unirest from 'unirest';
 import axios from 'axios';
 import NavComponent from './components/Navbar';
 import Registration from './components/Registration';
+import Container from 'react-bootstrap/Container';
 
 // Component for buttons and display text
 class App extends Component {
@@ -46,7 +47,7 @@ class App extends Component {
       .then(result => this.setState({ h1: result.body.joke, h2: '' }))
   }
 
-  // methold for generating compliment
+  // method for generating compliment
   complimentClick() {
     axios.get('https://complimentr.com/api')
       .then(response2 => this.setState({ h1: response2.data.compliment, h2: '' }))
@@ -73,9 +74,9 @@ class App extends Component {
           />
         <div className="App">
           {/* Header   */}
-          <div className="header">
+          {/* <div className="header">
             header can go
-        </div>
+        </div> */}
           {/* Button component rendered here */}
           <React.Fragment>
             <Buttons
