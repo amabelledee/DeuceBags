@@ -23,7 +23,7 @@ class Form extends Component {
     handleClick() {
         Axios.post("/api/posts", function(req, res) {
             console.log(req.body);
-            
+            this.preventdefault()
             
             })
               .then(function(res) {
@@ -39,13 +39,13 @@ class Form extends Component {
       return (
         <form method="post" onClick={this.handleClick} >
           <input type="text"  name="name" />
-          <input type="textbox"  name="body" />
+          <textarea  name="body" />
     
             
         
             
           
-          <button type="button"  onClick={this.handleClick}>Submit</button>
+          <button type="submit"  onClick={this.handleClick} value="Save">Submit</button>
         </form>
       );
     }
