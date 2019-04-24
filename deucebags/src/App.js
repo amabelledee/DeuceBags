@@ -83,7 +83,7 @@ class App extends Component {
               jokeClick={this.jokeClick}
               complimentClick={this.complimentClick}
               quoteClick={this.quoteClick} />
-//             <Showform />
+             <Showform />
               <Showdiary />
        
           </React.Fragment>
