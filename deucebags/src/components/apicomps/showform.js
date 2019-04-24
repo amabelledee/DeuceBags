@@ -15,14 +15,10 @@ super()
 
     
     handleClick() {
-            this.setState({ showResults: true })          
+            this.setState({ showResults: !this.state.showResults })          
     }    
 
-    handleClick2() {
-      
-            this.setState({ showResults: false})
-        
-    }
+    
 
     render() {
             return (
