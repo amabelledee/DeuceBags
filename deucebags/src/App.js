@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import './App.css';
 import Buttons from './components/Buttons';
 import Journal from './components/Journal';
-import Showdiary from './components/apicomps/showdiary'
+import Showdiary from './components/apicomps/showdiary';
 import unirest from 'unirest';
 import axios from 'axios';
 import NavComponent from './components/Navbar';
-// import Registration from './components/Registration';
+import Registration from './components/Registration';
 import Container from 'react-bootstrap/Container';
 import Footer from './components/Footer';
-import ChatButton from './components/ChatButton';
+// import ChatButton from './components/ChatButton';
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import { databaseBase, firebase } from './base';
@@ -75,19 +75,19 @@ class App extends Component {
 
   // methods for registration
   handleCreateUserEmailChange = (event) => {
-    this.setState({createUserEmail: event.target.value});
+    this.setState({ createUserEmail: event.target.value });
   }
 
   handleCreateUserPasswordChange = (event) => {
-    this.setState({createUserPassword: event.target.value});
+    this.setState({ createUserPassword: event.target.value });
   }
 
   handleLoginEmailChange = (event) => {
-    this.setState({signInEmail: event.target.value});
+    this.setState({ signInEmail: event.target.value });
   }
 
   handleLoginPasswordChange = (event) => {
-    this.setState({signInPassword: event.target.value});
+    this.setState({ signInPassword: event.target.value });
   }
 
   createUser = (event) => {
@@ -105,7 +105,7 @@ class App extends Component {
       this.setState({
         error: e.message
       })
-      setTimeout(()=>{
+      setTimeout(() => {
         this.setState({
           error: ""
         })
@@ -122,7 +122,7 @@ class App extends Component {
       this.setState({
         error: e.message
       })
-      setTimeout(()=>{
+      setTimeout(() => {
         this.setState({
           error: ""
         })
@@ -134,10 +134,10 @@ class App extends Component {
     firebase.auth().signOut()
   }
 
-  componentDidMount(){
+  componentDidMount() {
     console.log('hello');
     firebase.auth().onAuthStateChanged(firebaseUser => {
-      if (firebaseUser){
+      if (firebaseUser) {
         console.log(firebaseUser);
         this.setState({
           authenticated: true,
@@ -155,7 +155,7 @@ class App extends Component {
         });
       } else {
         console.log('not logged in');
-        this.setState({authenticated: false})
+        this.setState({ authenticated: false })
       }
     })
   }
@@ -169,18 +169,18 @@ class App extends Component {
           handleShow={this.handleShow}
         />
 
-        {/* <Registration
+        <Registration
           show={this.state.show}
           handleClose={this.handleClose}
           handleShow={this.handleShow}
           showRegistraion={this.state.showRegistraion}
-        /> */}
+        />
 
         {/* display field */}
         <React.Fragment>
-          <Container >
+          <Container>
             <Row>
-              <Col>
+              <Col xs={2} md={3}>
                 {/* Button component rendered here */}
                 <Buttons
                   jokeClick={this.jokeClick}
@@ -188,14 +188,16 @@ class App extends Component {
                   quoteClick={this.quoteClick}
                   ventClick={this.ventClick} />
               </Col>
-              <Col>
-              <div>
-                <h1> {this.state.h1}
-                {this.state.showResults ? <Journal /> : null}
-                </h1>
-                {/* this is needed for quote API to GET author */}
-                <h2> {this.state.h2} </h2>
-                </div>
+              <Col xs={5} md={7}>
+                <Container>
+                  <div className="displayText">
+                    <h1> {this.state.h1}
+                      {this.state.showResults ? <Journal /> : null}
+                    </h1>
+                    {/* this is needed for quote API to GET author */}
+                    <h2> {this.state.h2} </h2>
+                  </div>
+                </Container>
               </Col>
             </Row>
           </Container>
@@ -203,9 +205,9 @@ class App extends Component {
 
         </React.Fragment>
 
-        <React.Fragment>
+        {/* <React.Fragment>
           <ChatButton></ChatButton>
-        </React.Fragment>
+        </React.Fragment> */}
 
         <React.Fragment>
           <Footer>

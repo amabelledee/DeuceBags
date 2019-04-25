@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import '../Journal/journal.css';
+import Button from 'react-bootstrap/Button';
 
-class Form extends Component {
+
+class FormVent extends Component {
     constructor() {
       super();
       this.state = {
@@ -20,24 +21,26 @@ class Form extends Component {
   
     handleClick(event) {
      this.setState({h1: event.target.value})
-     
-    
     }
   
     render() {
      
       return (
+        <React.Fragment>
         <form onClick={this.handleClick} >
-          <label><h1 onChange={this.handleChange} onClick={this.state.value} >
+          <label><h1 className="letGO" onChange={this.handleChange} onClick={this.state.value} >
              {this.state.h1}
             </h1>
             
             <textarea value={this.state.value} onChange={this.handleChange} />
             
           </label>
-          <button className="letgo" type="button" value="Let that shit go" onClick={this.state.value}>let it go</button>
+          <div>
+          <Button type="button" variant="primary" value="Let that shit go" onClick={this.state.value}>let it go</Button>
+          </div>
         </form>
+        </React.Fragment>
       );
     }
   }
-  export default Form;
+  export default FormVent;

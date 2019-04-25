@@ -21,7 +21,7 @@ class Buttons extends React.Component {
         <br></br>
         <Container>
           <Row>
-            <Col xs={6} md={2}>
+            <Col>
               <Image src={btnJoke} onClick={this.props.jokeClick} roundedCircle alt="Joke" />
               <br></br>
               <br></br>
@@ -31,7 +31,7 @@ class Buttons extends React.Component {
               <Image src={btnEvents} roundedCircle alt="Events" />
             </Col>
 
-            <Col xs={6} md={2}>
+            <Col>
               <Image src={btnKudos} onClick={this.props.complimentClick} roundedCircle alt="Kudos" />
             <br></br>
               <br></br>
@@ -40,7 +40,6 @@ class Buttons extends React.Component {
               <br></br>
               <Image src={btnVent} onClick={this.props.ventClick} roundedCircle alt="Vent" />
             </Col>
-
           </Row>
         </Container>
         {/* <div> */}
