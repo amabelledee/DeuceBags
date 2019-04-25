@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import sutherLogo from '../../images/SutherLogo_rev.gif';
 import Container from 'react-bootstrap/Container';
+import '../Navbar/Navbar.css'
 // import Button from 'react-bootstrap/Button';
 
 // import Dashboard from '../Dasboard';
@@ -14,7 +15,7 @@ class NavComponent extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <Navbar collapseOnSelect expand="md" bg="primary" variant="dark" sticky="top" className="transparent">
+                <Navbar collapseOnSelect expand="md" variant="dark" sticky="top" className="navyBlue">
                     <Container>
                         <Navbar.Brand href="#home"><img
                             src={sutherLogo}
