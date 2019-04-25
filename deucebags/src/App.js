@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
 import Buttons from './components/Buttons';
-import Showform from './components/apicomps/showform'
+import Journal from './components/apicomps/journal'
 import Showdiary from './components/apicomps/showdiary'
 import unirest from 'unirest';
 import axios from 'axios';
 import NavComponent from './components/Navbar';
 import Registration from './components/Registration';
+import Container from 'react-bootstrap/Container';
+import Footer from './components/Footer';
+import ChatButton from './components/ChatButton';
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
+import { databaseBase, firebase } from './base'
 
 // Component for buttons and display text
 class App extends Component {
@@ -19,7 +25,8 @@ class App extends Component {
       authenticated: false,
       items: [],
       show: false,
-      showRegistraion: false
+      showRegistraion: false,
+      showResults: false
     }
     this.handleShow = this.handleShow.bind(this);
     this.handleClose = this.handleClose.bind(this);
@@ -28,7 +35,13 @@ class App extends Component {
     this.quoteClick = this.quoteClick.bind(this)
     this.handleShow = this.handleShow.bind(this)
     this.handleClose = this.handleClose.bind(this)
+    this.ventClick = this.ventClick.bind(this)
   }
+
+  // method for vent
+  ventClick() {
+    this.setState({ showResults: !this.state.showResults })
+}
 
   // method for modal
   handleClose() {
@@ -58,47 +71,100 @@ class App extends Component {
     axios.get('http://quotes.rest/qod.json')
       .then(response => this.setState({ h1: response.data.contents.quotes[0].quote, h2: response.data.contents.quotes[0].author }))
   }
-  
+
+  // methods for registration
+  handleCreateUserEmailChange = (event) => {
+    this.setState({ createUserEmail: event.target.value });
+  }
+
+  handleCreateUserPasswordChange = (event) => {
+    this.setState({ createUserPassword: event.target.value });
+  }
+
+  handleLoginEmailChange = (event) => {
+    this.setState({ signInEmail: event.target.value });
+  }
+
+  handleLoginPasswordChange = (event) => {
+    this.setState({ signInPassword: event.target.value });
+  }
+
+  createUser = (event) => {
+    event.preventDefault()
+    const promise = firebase.auth().createUserWithEmailAndPassword(this.state.createUserEmail, this.state.createUserPassword)
+    // promise.catch(e => console.log(e.message))
+    promise.then(() => {
+      firebase.auth().currentUser.updateProfile({
+        displayName: this.state.displayName
+      })
+    })
+
+    promise.catch(e => {
+      console.log(e.message)
+      this.setState({
+        error: e.message
+      })
+      setTimeout(() => {
+        this.setState({
+          error: ""
+        })
+      }, 3000)
+    })
+  }
+
   render() {
     return (
       <React.Fragment>
-        <NavComponent 
-        handleClose={this.handleClose}
-        handleShow={this.handleShow}
+
+        <NavComponent
+          handleClose={this.handleClose}
+          handleShow={this.handleShow}
         />
-        <Registration 
+
+        <Registration
           show={this.state.show}
           handleClose={this.handleClose}
           handleShow={this.handleShow}
           showRegistraion={this.state.showRegistraion}
-          />
-        <div className="App">
-          {/* Header   */}
-          <div className="header">
-            header can go
-        </div>
-          {/* Button component rendered here */}
-          <React.Fragment>
-            <Buttons
-              jokeClick={this.jokeClick}
-              complimentClick={this.complimentClick}
-              quoteClick={this.quoteClick} />
-             <Showform />
-              <Showdiary />
-       
-          </React.Fragment>
-        </div>
+        />
 
         {/* display field */}
         <React.Fragment>
-          <div className='container'>
-            <h1> {this.state.h1} </h1>
-            {/* this is needed for quote API to GET author */}
-            <h2> {this.state.h2} </h2>
-          </div>
+          <Container >
+            <Row>
+              <Col>
+                {/* Button component rendered here */}
+                <Buttons
+                  jokeClick={this.jokeClick}
+                  complimentClick={this.complimentClick}
+                  quoteClick={this.quoteClick} 
+                  ventClick={this.ventClick}/>
+              </Col>
+              <Col>
+                <h1> {this.state.h1} </h1>
+                {/* this is needed for quote API to GET author */}
+                <h2> {this.state.h2} </h2>
+                <div>
+                {this.state.showResults ? <Journal /> : null}
+                </div>
+              </Col>
+            </Row>
+          </Container>
+          <Showdiary />
+
         </React.Fragment>
 
-      </React.Fragment>
+        <React.Fragment>
+          <ChatButton></ChatButton>
+        </React.Fragment>
+
+        <React.Fragment>
+          <Footer>
+
+          </Footer>
+        </React.Fragment>
+
+      </React.Fragment >
 
     );
   }
