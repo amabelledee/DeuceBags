@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Buttons from './components/Buttons';
-import Journal from './components/apicomps/journal'
+import Journal from './components/Journal';
 import Showdiary from './components/apicomps/showdiary'
 import unirest from 'unirest';
 import axios from 'axios';
