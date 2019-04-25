@@ -180,7 +180,7 @@ class App extends Component {
         <React.Fragment>
           <Container>
             <Row>
-              <Col xs={2} md={3}>
+              <Col xs={6} md={3}>
                 {/* Button component rendered here */}
                 <Buttons
                   jokeClick={this.jokeClick}
@@ -188,14 +188,14 @@ class App extends Component {
                   quoteClick={this.quoteClick}
                   ventClick={this.ventClick} />
               </Col>
-              <Col xs={5} md={7}>
+              <Col>
                 <Container>
                   <div className="displayText">
-                    <h1> {this.state.h1}
+                    <div> {this.state.h1}
+                      {/* this is needed for quote API to GET author */}
+                      <div> {this.state.h2} </div>
                       {this.state.showResults ? <Journal /> : null}
-                    </h1>
-                    {/* this is needed for quote API to GET author */}
-                    <h2> {this.state.h2} </h2>
+                    </div>
                   </div>
                 </Container>
               </Col>
