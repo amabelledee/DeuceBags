@@ -189,11 +189,12 @@ class App extends Component {
                   ventClick={this.ventClick} />
               </Col>
               <Col>
-                <h1> {this.state.h1} </h1>
+              <div>
+                <h1> {this.state.h1}
+                {this.state.showResults ? <Journal /> : null}
+                </h1>
                 {/* this is needed for quote API to GET author */}
                 <h2> {this.state.h2} </h2>
-                <div>
-                  {this.state.showResults ? <Journal /> : null}
                 </div>
               </Col>
             </Row>
@@ -216,11 +217,6 @@ class App extends Component {
 
           {/* Authentication  */}
           <div className="dashed-container">
-
-            <div className="cut-sentence">
-              <i className="fa fa-scissors"></i> cut and use in your program
-        <span className="orange-words">Authentication</span>
-            </div>
 
             {this.state.authenticated === false &&
               <div>

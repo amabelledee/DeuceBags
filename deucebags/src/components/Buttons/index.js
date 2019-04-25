@@ -11,7 +11,6 @@ import btnKudos from '../../images/KUDOS.jpg';
 import btnQuiet from '../../images/QUIET.jpg';
 import btnVent from '../../images/VENT.jpg';
 import Image from 'react-bootstrap/Image';
-import Showform from '../apicomps/showform';
 
 class Buttons extends React.Component {
   // render buttons and display text
