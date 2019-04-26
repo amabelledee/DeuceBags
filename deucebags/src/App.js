@@ -220,7 +220,7 @@ class App extends Component {
         <React.Fragment>
           <Container>
             <Row>
-              <Col xs={6} md={3}>
+              <Col xs={7} md={3}>
                 {/* Button component rendered here */}
                 <Buttons
                   jokeClick={this.jokeClick}
