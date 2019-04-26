@@ -14,6 +14,7 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import { databaseBase, firebase } from './base';
 import Dashboard from './components/Dasboard';
+import Login from './components/Login';
 
 // Component for buttons and display text
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
       authenticated: false,
       items: [],
       show: false,
+      show2: false,
       showRegistraion: false,
       showResults: false
     }
@@ -35,7 +37,9 @@ class App extends Component {
     this.complimentClick = this.complimentClick.bind(this)
     this.quoteClick = this.quoteClick.bind(this)
     this.handleShow = this.handleShow.bind(this)
+    this.handleShow2 = this.handleShow2.bind(this)
     this.handleClose = this.handleClose.bind(this)
+    this.handleClose2 = this.handleClose2.bind(this)
     this.ventClick = this.ventClick.bind(this)
   }
 
@@ -49,8 +53,16 @@ class App extends Component {
     this.setState({ show: false });
   }
 
+  handleClose2() {
+    this.setState({ show2: false });
+  }
+
   handleShow() {
     this.setState({ show: true });
+  }
+
+  handleShow2() {
+    this.setState({ show2: true });
   }
 
   // method for generating joke
@@ -125,6 +137,7 @@ class App extends Component {
   signIn = (event) => {
     event.preventDefault()
     const promise = firebase.auth().signInWithEmailAndPassword(this.state.signInEmail, this.state.signInPassword)
+    this.setState({show:false})
     // promise.catch(e => console.log(e.message))
     promise.catch(e => {
       console.log(e.message)
@@ -175,7 +188,9 @@ class App extends Component {
 
         <NavComponent
           handleClose={this.handleClose}
+          handleClose2={this.handleClose2}
           handleShow={this.handleShow}
+          handleShow2={this.handleShow2}
         />
 
         <Registration
@@ -187,6 +202,23 @@ class App extends Component {
           handleShow={this.handleShow}
           showRegistraion={this.state.showRegistraion}
         />
+
+        {/* {this.state.authenticated ? <Login 
+        loginChange={this.handleLoginEmailChange}
+        logpassChange={this.handleLoginPasswordChange}
+        signInButton={this.signIn}
+        signOutButton={this.signOut}
+        show={this.state.show}
+        handleClose={this.handleClose}
+        handleShow={this.handleShow}/>: <p>Log Out</p>} */}
+        <Login 
+        loginChange={this.handleLoginEmailChange}
+        logpassChange={this.handleLoginPasswordChange}
+        signInButton={this.signIn}
+        signOutButton={this.signOut}
+        show2={this.state.show2}
+        handleClose2={this.handleClose2}
+        handleShow2={this.handleShow2}/>
 
         {/* display field */}
         <React.Fragment>

@@ -27,7 +27,7 @@ class NavComponent extends React.Component {
                         <Navbar.Collapse id="responsive-navbar-nav ">
                             <Nav >
                                 <Nav.Link onClick={this.props.handleShow}>REGISTRATION</Nav.Link>
-                                <Nav.Link eventKey={2} href="#memes">
+                                <Nav.Link eventKey={2} onClick={this.props.handleShow2}>
                                     LOGIN
                     </Nav.Link>
                             </Nav>
