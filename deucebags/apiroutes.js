@@ -1,7 +1,7 @@
 var db = require("../models");
 import express from 'express'
 
-const app = express;
+const app = express();
 
 
   app.get("/api/posts/", function(req, res) {

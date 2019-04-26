@@ -7,6 +7,7 @@ import unirest from 'unirest';
 import axios from 'axios';
 import NavComponent from './components/Navbar';
 import Registration from './components/Registration';
+import Events from './components/apicomps/events'
 
 // Component for buttons and display text
 class App extends Component {
@@ -85,6 +86,7 @@ class App extends Component {
               quoteClick={this.quoteClick} />
              <Showform />
               <Showdiary />
+              <Events />
        
           </React.Fragment>
         </div>

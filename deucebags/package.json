@@ -6,6 +6,7 @@
     "@pusher/chatkit-client": "^1.4.1",
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
+    "create-react-app-fullstack": "^3.0.1",
     "express": "^4.16.4",
     "firebase": "^5.9.4",
     "re-base": "^4.0.0",

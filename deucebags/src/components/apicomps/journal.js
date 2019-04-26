@@ -22,7 +22,7 @@ class Form extends Component {
   
     handleClick(event) {
      this.setState({h1: event.target.value})
-     
+         
     
     }
   
