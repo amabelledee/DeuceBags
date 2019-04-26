@@ -7,7 +7,7 @@ class FormVent extends Component {
       super();
       this.state = {
         h1: '',
-        
+        message: ''
       };
   
       this.handleChange = this.handleChange.bind(this);
@@ -16,27 +16,27 @@ class FormVent extends Component {
     }
   
     handleChange(event) {
-      this.setState({h1: event.target.value});
+      this.setState({h1: event.target.value, message: ''});
     }
   
     handleClick(event) {
-     this.setState({h1: event.target.value})
+     this.setState({h1: '', message: 'Let that sh*t go'})
     }
   
     render() {
      
       return (
         <React.Fragment>
-        <form onClick={this.handleClick} >
+        <form >
           <label><h1 className="letGO" onChange={this.handleChange} onClick={this.state.value} >
-             {this.state.h1}
+             {this.state.message.length > 0 ? this.state.message: this.state.h1}
             </h1>
             
-            <textarea value={this.state.value} onChange={this.handleChange} />
+            <textarea value={this.state.h1} onChange={this.handleChange} />
             
           </label>
           <div>
-          <Button type="button" variant="primary" value="Let that shit go" onClick={this.state.value}>let it go</Button>
+          <Button onClick={this.handleClick} type="button" variant="primary" value="Let that sh*t go" >let it go</Button>
           </div>
         </form>
         </React.Fragment>

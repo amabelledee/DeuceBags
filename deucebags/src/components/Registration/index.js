@@ -10,12 +10,11 @@ class Example extends React.Component {
       <>
         <Modal show={this.props.show} onHide={this.props.handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>Create User</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <React.Fragment>
               <form id="create-user-form" onSubmit={this.createUser}>
-                <h2>Create user</h2>
                 <input value={this.props.value} onChange={this.props.emailChange} type="email" placeholder="Email" required></input>
                 <input value={this.props.value} onChange={this.props.passwordChange} type="password" placeholder="Password" required></input>
                 <button id="sign-up-button" type="submit" onClick={this.props.createAccount}>Sign Up</button>
@@ -34,9 +33,6 @@ class Example extends React.Component {
           <Modal.Footer>
             <Button variant="secondary" onClick={this.props.handleClose}>
               Close
-              </Button>
-            <Button variant="primary" onClick={this.props.handleClose}>
-              Save Changes
               </Button>
           </Modal.Footer>
         </Modal>
