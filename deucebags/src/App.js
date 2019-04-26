@@ -13,7 +13,6 @@ import Footer from './components/Footer';
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import { databaseBase, firebase } from './base';
-import Dashboard from './components/Dasboard';
 import Login from './components/Login';
 
 // Component for buttons and display text
@@ -70,23 +69,26 @@ class App extends Component {
     unirest.get("https://icanhazdadjoke.com")
       .header("accept", "application/json")
 
-      .then(result => this.setState({ h1: result.body.joke, h2: '',
-      showResults: false
-    }))
+      .then(result => this.setState({
+        h1: result.body.joke, h2: '',
+        showResults: false
+      }))
   }
 
   // methold for generating compliment
   complimentClick() {
     axios.get('https://complimentr.com/api')
-      .then(response2 => this.setState({ h1: response2.data.compliment, h2: '',
-      showResults: false
-    }))
+      .then(response2 => this.setState({
+        h1: response2.data.compliment, h2: '',
+        showResults: false
+      }))
   }
 
   // method for generating quote
   quoteClick() {
     axios.get('http://quotes.rest/qod.json')
-      .then(response => this.setState({ h1: response.data.contents.quotes[0].quote, h2: response.data.contents.quotes[0].author,
+      .then(response => this.setState({
+        h1: response.data.contents.quotes[0].quote, h2: response.data.contents.quotes[0].author,
         showResults: false
       }))
   }
@@ -118,7 +120,7 @@ class App extends Component {
       firebase.auth().currentUser.updateProfile({
         displayName: this.state.displayName
       })
-      this.setState({show: false})
+      this.setState({ show: false })
     })
 
     promise.catch(e => {
@@ -137,7 +139,7 @@ class App extends Component {
   signIn = (event) => {
     event.preventDefault()
     const promise = firebase.auth().signInWithEmailAndPassword(this.state.signInEmail, this.state.signInPassword)
-    this.setState({show:false})
+    this.setState({ show2: false })
     // promise.catch(e => console.log(e.message))
     promise.catch(e => {
       console.log(e.message)
@@ -191,6 +193,8 @@ class App extends Component {
           handleClose2={this.handleClose2}
           handleShow={this.handleShow}
           handleShow2={this.handleShow2}
+          authenticated={this.state.authenticated}
+          signOut={this.signOut}
         />
 
         <Registration
@@ -203,22 +207,14 @@ class App extends Component {
           showRegistraion={this.state.showRegistraion}
         />
 
-        {/* {this.state.authenticated ? <Login 
-        loginChange={this.handleLoginEmailChange}
-        logpassChange={this.handleLoginPasswordChange}
-        signInButton={this.signIn}
-        signOutButton={this.signOut}
-        show={this.state.show}
-        handleClose={this.handleClose}
-        handleShow={this.handleShow}/>: <p>Log Out</p>} */}
-        <Login 
-        loginChange={this.handleLoginEmailChange}
-        logpassChange={this.handleLoginPasswordChange}
-        signInButton={this.signIn}
-        signOutButton={this.signOut}
-        show2={this.state.show2}
-        handleClose2={this.handleClose2}
-        handleShow2={this.handleShow2}/>
+        <Login
+          loginChange={this.handleLoginEmailChange}
+          logpassChange={this.handleLoginPasswordChange}
+          signInButton={this.signIn}
+          signOutButton={this.signOut}
+          show2={this.state.show2}
+          handleClose2={this.handleClose2}
+          handleShow2={this.handleShow2} />
 
         {/* display field */}
         <React.Fragment>
@@ -235,12 +231,12 @@ class App extends Component {
               <Col>
                 <Container>
                   <div className="displayText">
-                    <div> 
-                    {this.state.showResults ? <Journal /> : this.state.h1}
-                    {/* {this.state.h1} */}
-                      {/* this is needed for quote API to GET author */}
-                      <div> {this.state.h2} </div>
-                      {/* {this.state.showResults ? <Journal /> : null} */}
+                    <div>
+                      {this.state.showResults ? <Journal /> : 
+                      <React.Fragment>
+                      {this.state.h1}
+                      <div> {this.state.h2}</div></React.Fragment>
+                      }
                     </div>
                   </div>
                 </Container>
@@ -259,51 +255,6 @@ class App extends Component {
           <Footer>
 
           </Footer>
-        </React.Fragment>
-
-        <React.Fragment>
-
-          {/* Authentication  */}
-          <div className="dashed-container">
-
-            {this.state.authenticated === false &&
-              <div>
-                <form id="create-user-form" onSubmit={this.createUser}>
-                  <h2>Create user</h2>
-                  <input value={this.state.value} onChange={this.handleCreateUserEmailChange} type="email" placeholder="Email" required></input>
-                  <input value={this.state.value} onChange={this.handleCreateUserPasswordChange} type="password" placeholder="Password" required></input>
-                  <button id="sign-up-button" type="submit">Sign Up</button>
-                </form>
-
-                <form id="sign-in-form" onSubmit={this.signIn}>
-                  <h2>Sign in</h2>
-                  <input value={this.state.value} onChange={this.handleLoginEmailChange} type="email" placeholder="Email" required></input>
-                  <input value={this.state.value} onChange={this.handleLoginPasswordChange} type="password" placeholder="Password" required></input>
-                  <button id="signIn-button" type="submit">Log In</button>
-                </form>
-
-                <p id="errors">{this.state.error}</p>
-
-              </div>
-            }
-            {this.state.authenticated === true &&
-              <button id="sig-out-button" onClick={this.signOut}>Log Out</button>
-            }
-          </div>
-
-          {/* Errors  */}
-          {
-            (this.state.authenticated === false)
-              ? <div>status <span className="status-red">not authenticated</span></div>
-              : <div>status <span className="status-green">authenticated</span></div>
-          }
-
-          {this.state.authenticated === true &&
-            <Dashboard
-              uid={this.state.uid}
-              items={this.state.items}
-            />
-          }
         </React.Fragment>
       </React.Fragment>
     );
