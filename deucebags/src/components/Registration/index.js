@@ -16,9 +16,9 @@ class Example extends React.Component {
             <React.Fragment>
               <form id="create-user-form" onSubmit={this.createUser}>
                 <h2>Create user</h2>
-                <input value={this.props.value} onChange={this.handleCreateUserEmailChange} type="email" placeholder="Email" required></input>
-                <input value={this.props.value} onChange={this.handleCreateUserPasswordChange} type="password" placeholder="Password" required></input>
-                <button id="sign-up-button" type="submit">Sign Up</button>
+                <input value={this.props.value} onChange={this.props.emailChange} type="email" placeholder="Email" required></input>
+                <input value={this.props.value} onChange={this.props.passwordChange} type="password" placeholder="Password" required></input>
+                <button id="sign-up-button" type="submit" onClick={this.props.createAccount}>Sign Up</button>
               </form>
             </React.Fragment>
             {/* {this.props.showRegistration === true &&

@@ -58,27 +58,35 @@ class App extends Component {
     unirest.get("https://icanhazdadjoke.com")
       .header("accept", "application/json")
 
-      .then(result => this.setState({ h1: result.body.joke, h2: '' }))
+      .then(result => this.setState({ h1: result.body.joke, h2: '',
+      showResults: false
+    }))
   }
 
   // methold for generating compliment
   complimentClick() {
     axios.get('https://complimentr.com/api')
-      .then(response2 => this.setState({ h1: response2.data.compliment, h2: '' }))
+      .then(response2 => this.setState({ h1: response2.data.compliment, h2: '',
+      showResults: false
+    }))
   }
 
   // method for generating quote
   quoteClick() {
     axios.get('http://quotes.rest/qod.json')
-      .then(response => this.setState({ h1: response.data.contents.quotes[0].quote, h2: response.data.contents.quotes[0].author }))
+      .then(response => this.setState({ h1: response.data.contents.quotes[0].quote, h2: response.data.contents.quotes[0].author,
+        showResults: false
+      }))
   }
 
   // methods for registration
   handleCreateUserEmailChange = (event) => {
+    console.log(event.target.value)
     this.setState({ createUserEmail: event.target.value });
   }
 
   handleCreateUserPasswordChange = (event) => {
+    console.log(event.target.value)
     this.setState({ createUserPassword: event.target.value });
   }
 
@@ -98,6 +106,7 @@ class App extends Component {
       firebase.auth().currentUser.updateProfile({
         displayName: this.state.displayName
       })
+      this.setState({show: false})
     })
 
     promise.catch(e => {
@@ -170,6 +179,9 @@ class App extends Component {
         />
 
         <Registration
+          emailChange={this.handleCreateUserEmailChange}
+          passwordChange={this.handleCreateUserPasswordChange}
+          createAccount={this.createUser}
           show={this.state.show}
           handleClose={this.handleClose}
           handleShow={this.handleShow}
@@ -191,10 +203,12 @@ class App extends Component {
               <Col>
                 <Container>
                   <div className="displayText">
-                    <div> {this.state.h1}
+                    <div> 
+                    {this.state.showResults ? <Journal /> : this.state.h1}
+                    {/* {this.state.h1} */}
                       {/* this is needed for quote API to GET author */}
                       <div> {this.state.h2} </div>
-                      {this.state.showResults ? <Journal /> : null}
+                      {/* {this.state.showResults ? <Journal /> : null} */}
                     </div>
                   </div>
                 </Container>
