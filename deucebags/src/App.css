@@ -40,6 +40,11 @@ body {
   background-size: cover;
 }
 
+.responsive-image{
+  width: 100%;
+  background-size: 100% 100%;
+} 
+
 /* Desktop */
 @media screen and (min-width: 980px) and (max-width: 1024px){
   .responsive-image{

@@ -6,7 +6,7 @@ import unirest from 'unirest';
 import axios from 'axios';
 import NavComponent from './components/Navbar';
 import Registration from './components/Registration';
-import Container from 'react-bootstrap/Container';
+// import Container from 'react-bootstrap/Container';
 import Footer from './components/Footer';
 import ChatButton from './components/ChatButton';
 
@@ -89,9 +89,9 @@ class App extends Component {
        
           </React.Fragment>
 
-          <React.Fragment>
+          {/* <React.Fragment>
             <ChatButton></ChatButton>
-          </React.Fragment>
+          </React.Fragment> */}
           
         </div>
 
@@ -105,9 +105,7 @@ class App extends Component {
         </React.Fragment>
 
         <React.Fragment>
-        <Footer>
-
-        </Footer>
+        <Footer></Footer>
         </React.Fragment>
 
       </React.Fragment>
