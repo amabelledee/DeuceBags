@@ -17,7 +17,7 @@ class NavComponent extends React.Component {
             <React.Fragment>
                 <Navbar collapseOnSelect expand="md" variant="dark" sticky="top" className="navyBlue">
                     <Container>
-                        <Navbar.Brand href="#home"><img
+                        <Navbar.Brand href="https://protected-depths-46039.herokuapp.com/"><img
                             src={sutherLogo}
                             width="141"
                             height="25"
@@ -29,7 +29,7 @@ class NavComponent extends React.Component {
                                 <Nav.Link onClick={this.props.handleShow}>REGISTRATION</Nav.Link>
                                 {!this.props.authenticated ? <Nav.Link eventKey={2} onClick={this.props.handleShow2}>
                                     LOGIN
-                                </Nav.Link>:<button id="sign-out-button" onClick={this.props.signOut}>Log Out</button> }
+                                </Nav.Link>:<Nav.Link id="sign-out-button" onClick={this.props.signOut}>Log Out</Nav.Link> }
                                 {/* <Nav.Link eventKey={2} onClick={this.props.handleShow2}>
                                     LOGIN
                                 </Nav.Link> */}
