@@ -29,7 +29,7 @@ class FormVent extends Component {
       return (
         <React.Fragment>
         <form >
-          <label><h1 className="letGO" onChange={this.handleChange} onClick={this.state.value} >
+          <label><h1 onChange={this.handleChange} onClick={this.state.value} >
              {this.state.message.length > 0 ? this.state.message: this.state.h1}
             </h1>
             
