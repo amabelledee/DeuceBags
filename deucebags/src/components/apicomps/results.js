@@ -34,7 +34,7 @@ class Form extends Component {
              {this.state.h1}
             </h1>
             
-            <textarea value={this.state.value} onChange={this.handleChange} />
+            <textarea id="textarea" value={this.state.value} onChange={this.handleChange} />
             
           </label>
           <button type="button" value="Let that shit go" onClick={this.state.value}>let it go</button>

@@ -1,0 +1,21 @@
+textarea {
+    resize: both;
+    height: 350px;
+    width: 450px
+}
+h1 {
+    word-wrap: normal;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 350px;
+    min-width: 350px
+}
+
+form {
+    min-width: 350px;
+}
+div {
+    word-wrap: normal;
+    flex-direction: row;
+    flex-wrap: wrap
+}
