@@ -1,0 +1,8 @@
+.textBox {
+    width: 300px;
+    height: 100px;
+}
+
+.ventText {
+    overflow-wrap: break-word
+}
