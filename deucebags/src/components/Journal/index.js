@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import'./journal.css'
 import Button from 'react-bootstrap/Button';
-import '../Journal/journal.css';
+
 
 
 class FormVent extends Component {
@@ -30,8 +30,8 @@ class FormVent extends Component {
       return (
         <React.Fragment>
 
-        <form>
-          <label><h1 style={{flexWrap: 'wrap', flexDirection:'row'}} className="letGO" onChange={this.handleChange} onClick={this.state.value} >
+        <form style={{flexWrap: 'wrap', flexDirection:'row'}}>
+          <label style={{flexWrap: 'wrap', flexDirection:'row'}}><h1 id="venttext" style={{flexWrap: 'wrap', flexDirection:'row'}} className="letGO" onChange={this.handleChange} onClick={this.state.value} >
              {this.state.message.length > 0 ? this.state.message: this.state.h1}
             </h1>
             
