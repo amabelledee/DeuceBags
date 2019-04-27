@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
+import '../Journal/journal.css';
 
 
 class FormVent extends Component {
@@ -32,7 +33,7 @@ class FormVent extends Component {
              {this.state.message.length > 0 ? this.state.message: this.state.h1}
             </h1>
             
-            <textarea value={this.state.h1} onChange={this.handleChange} />
+            <textarea className="textBox" value={this.state.h1} onChange={this.handleChange} />
             
           </label>
           <div>
