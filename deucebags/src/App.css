@@ -38,12 +38,16 @@ body {
 
 .displayText {
   font-family: 'Quicksand';
-  color: darkblue;
+  color: black;
   background: rgba(225, 225, 225, 0.3);
-  padding: 5px;
+  padding: 10px;
   margin-top: 10px;
   text-align: center;
   border-radius: 2%;
+}
+
+.ventText {
+  overflow-wrap: break-word;
 }
 
 /* Desktop */

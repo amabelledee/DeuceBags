@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Buttons from './components/Buttons';
 import Journal from './components/Journal';
-import Showdiary from './components/apicomps/showdiary';
 import unirest from 'unirest';
 import axios from 'axios';
 import NavComponent from './components/Navbar';
@@ -232,7 +231,7 @@ class App extends Component {
                 <Container>
                   <div className="displayText">
                     <div>
-                      {this.state.showResults ? <Journal /> : 
+                      {this.state.showResults ? <Journal className="ventText"/> : 
                       <React.Fragment>
                       {this.state.h1}
                       <div> {this.state.h2}</div></React.Fragment>
@@ -243,7 +242,6 @@ class App extends Component {
               </Col>
             </Row>
           </Container>
-          <Showdiary />
 
         </React.Fragment>
 

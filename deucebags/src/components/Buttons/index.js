@@ -35,7 +35,7 @@ class Buttons extends React.Component {
               <Image src={btnKudos} onClick={this.props.complimentClick} roundedCircle alt="Kudos" />
             <br></br>
               <br></br>
-              <Image src={btnQuiet} roundedCircle alt="Quiet" />
+              <a href="https://amabelledee.github.io/quietplace/"><Image src={btnQuiet} roundedCircle alt="Quiet" /></a>
               <br></br>
               <br></br>
               <Image src={btnVent} onClick={this.props.ventClick} roundedCircle alt="Vent" />
