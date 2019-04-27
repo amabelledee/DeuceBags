@@ -17,7 +17,7 @@ class NavComponent extends React.Component {
             <React.Fragment>
                 <Navbar collapseOnSelect expand="md" variant="dark" sticky="top" className="navyBlue">
                     <Container>
-                        <Navbar.Brand href="https://protected-depths-46039.herokuapp.com/"><img
+                        <Navbar.Brand href="#home"><img
                             src={sutherLogo}
                             width="141"
                             height="25"

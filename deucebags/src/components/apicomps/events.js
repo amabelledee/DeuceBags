@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-const postalCode = '92677';
+const postalCode = '92602';
 
 class Events extends Component {
   constructor(props) {
@@ -9,7 +9,10 @@ class Events extends Component {
 
     this.state = {
       events: [],
+      isHidden:true,
     };
+
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   componentDidMount() {
@@ -28,8 +31,8 @@ class Events extends Component {
         <ul>
           {events.map(event =>
               <li key={event.id}>
-                <a href={event.url}><h1>{event.title}</h1></a>
-                <a>{event.venue.name} {event.venue.datetime_local}</a>
+                <a href={event.url}><h2>{event.title}</h2></a>
+                <h4>{event.venue.name} {event.venue.datetime_local}</h4>
 
               </li>
 

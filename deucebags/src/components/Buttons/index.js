@@ -28,7 +28,7 @@ class Buttons extends React.Component {
               <Image src={btnInspire} onClick={this.props.quoteClick} roundedCircle alt="Inspire" />
               <br></br>
               <br></br>
-              <Image src={btnEvents} roundedCircle alt="Events" />
+              <Image src={btnEvents} onClick={this.props.clickEvents} roundedCircle alt="Events" />
             </Col>
 
             <Col>

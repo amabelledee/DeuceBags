@@ -13,6 +13,7 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import { databaseBase, firebase } from './base';
 import Login from './components/Login';
+import Events from './components/apicomps/events';
 
 // Component for buttons and display text
 class App extends Component {
@@ -27,7 +28,8 @@ class App extends Component {
       show: false,
       show2: false,
       showRegistraion: false,
-      showResults: false
+      showResults: false,
+      isHidden: false
     }
     this.handleShow = this.handleShow.bind(this);
     this.handleClose = this.handleClose.bind(this);
@@ -39,6 +41,7 @@ class App extends Component {
     this.handleClose = this.handleClose.bind(this)
     this.handleClose2 = this.handleClose2.bind(this)
     this.ventClick = this.ventClick.bind(this)
+    this.clickEvents = this.clickEvents.bind(this)
   }
 
   // method for vent
@@ -63,6 +66,11 @@ class App extends Component {
     this.setState({ show2: true });
   }
 
+  clickEvents() {
+    console.log("events clicked");
+    this.setState({ isHidden: !this.state.isHidden, h1: '', h2: '' })
+  }
+
   // method for generating joke
   jokeClick() {
     unirest.get("https://icanhazdadjoke.com")
@@ -85,7 +93,7 @@ class App extends Component {
 
   // method for generating quote
   quoteClick() {
-    axios.get('http://quotes.rest/qod.json')
+    axios.get('https://quotes.rest/qod.json')
       .then(response => this.setState({
         h1: response.data.contents.quotes[0].quote, h2: response.data.contents.quotes[0].author,
         showResults: false
@@ -225,16 +233,20 @@ class App extends Component {
                   jokeClick={this.jokeClick}
                   complimentClick={this.complimentClick}
                   quoteClick={this.quoteClick}
-                  ventClick={this.ventClick} />
+                  ventClick={this.ventClick}
+                  clickEvents={this.clickEvents} />
               </Col>
               <Col>
                 <Container>
                   <div className="displayText">
                     <div>
-                      {this.state.showResults ? <Journal className="ventText"/> : 
-                      <React.Fragment>
-                      {this.state.h1}
-                      <div> {this.state.h2}</div></React.Fragment>
+                      {this.state.isHidden ? <Events /> : null}
+                    </div>
+                    <div>
+                      {this.state.showResults ? <Journal className="ventText" /> :
+                        <React.Fragment>
+                          {this.state.h1}
+                          <div> {this.state.h2}</div></React.Fragment>
                       }
                     </div>
                   </div>

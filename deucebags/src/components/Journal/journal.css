@@ -1,17 +1,16 @@
 
 textarea {
     resize: both;
-    height: 250px;
+    height: 150px;
     width: 350px
 }
 h1 {
     word-wrap: break-word;
     flex-direction: column;
     flex-wrap: wrap;
-    max-width: 550px;
-    min-width: 550px
+    max-width: 500px;
+    min-width: 500px
 }
-
 
 
 div {
