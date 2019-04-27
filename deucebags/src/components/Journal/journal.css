@@ -1,20 +1,19 @@
 
 textarea {
     resize: both;
-    height: 350px;
-    width: 450px
+    height: 250px;
+    width: 350px
 }
 h1 {
-    word-wrap: normal;
+    word-wrap: break-word;
     flex-direction: column;
     flex-wrap: wrap;
-    max-width: 350px;
-    min-width: 350px
+    max-width: 550px;
+    min-width: 550px
 }
 
-form {
-    min-width: 350px;
-}
+
+
 div {
     word-wrap: normal;
     flex-direction: row;
